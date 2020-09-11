@@ -1,0 +1,10 @@
+[user]
+  name = Steve Testa
+  email = steve@testasoftare.com
+[alias]
+  rm-untracked = !rm $(git ls-files --other --exclude-standard)
+  tree = log --all --pretty=oneline --graph --decorate=short --color --format=format:'%C(bold blue)%h%C(reset) %C(auto)%d%C(reset) %C(bold magenta)[%cr]%C(reset) %x09%C(cyan)%an: %C(white)%s %C(reset)'
+  find = "!git ls-files | grep -i"
+  grep = grep -Ii
+[core]
+  editor = /usr/bin/vim
