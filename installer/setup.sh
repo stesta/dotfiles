@@ -39,3 +39,6 @@ mkdir -p $dotfilesDir/.vim/bundle
 cd $dotfilesDir/.vim/bundle
 git clone git://github.com/VundleVim/Vundle.vim.git
 vim +PluginInstall +qall
+
+# Cleanup ~/tmp
+rm -rf $HOME/tmp

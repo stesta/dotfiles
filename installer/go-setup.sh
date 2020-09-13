@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source functions.sh
+
 # Dirty dirty dirty
 VERSION="1.15.2"
 
