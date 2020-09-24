@@ -114,9 +114,39 @@ export GOPATH=$HOME/.go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 # gf autocomplete
-if [ -f ~/tools/gf/gf-completion.bash ]; then
-    . ~/tools/gf/gf-completion.bash
+if [ -f $HOME/tools/gf/gf-completion.bash ]; then
+    . $HOME/tools/gf/gf-completion.bash
 fi
 
 # Swift
 export PATH=/usr/local/swift/usr/bin:$PATH
+
+# Scripts
+export PATH=$HOME/code/scripts:$PATH
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/stesta/.anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/stesta/.anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/stesta/.anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/stesta/.anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# Nodejs
+export PATH=/usr/local/lib/nodejs/bin:$PATH
+
+# Ruby
+export GEM_HOME="$HOME/.gems"
+export PATH="$HOME/.gems/bin:$PATH"
+
+# Cargo/Rust
+export PATH=$HOME/.cargo/bin:$PATH
+

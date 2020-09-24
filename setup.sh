@@ -1,5 +1,5 @@
 #!/bin/bash
-dotfilesDir=$(pwd)
+dotfilesDir=$HOME/.dotfiles
 
 function linkDotfile {
   dest="${HOME}/${1}"
@@ -41,4 +41,4 @@ git clone git://github.com/VundleVim/Vundle.vim.git
 vim +PluginInstall +qall
 
 # Cleanup ~/tmp
-rm -rf $HOME/tmp
+#rm -rf $HOME/tmp

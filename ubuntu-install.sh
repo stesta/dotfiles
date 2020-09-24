@@ -1,9 +1,17 @@
 #!/bin/bash
 
-source ./configuration.sh
-source ./functions.sh
+source ./helpers.sh
 
-
+while getopts ":tds" opt; do
+  case $opt in
+    t) excludeGraphical=true
+      ;;
+    d) includeDevTools=true
+      ;;
+    s) includeSecTools=true 
+      ;;
+  esac
+done
 
 # Install Dependencies
 sudo apt update
@@ -32,10 +40,12 @@ apt-install libcurl4-openssl-dev
 apt-isntall libssl-dev
 apt-install jq
 apt-install libldns-dev
+apt-install tree
 
 # Development
 if [ $includeDevTools ]; then
   apt-install haskell-platform
+  snap-install node
   apt-install libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
   apt-install ruby-full
   apt-install build-essential libssl-dev libffi-dev python-dev
@@ -44,13 +54,14 @@ if [ $includeDevTools ]; then
   apt-install python-pip
   apt-install python-dnspython
   tar-install swift https://swift.org/builds/swift-5.2.5-release/ubuntu2004/swift-5.2.5-RELEASE/swift-5.2.5-RELEASE-ubuntu20.04.tar.gz /usr/local 1
-  # rust
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   # dotnet 
 
-  if [ ! excludeGraphical ]; then
-    # vs code
-    # vs code extensions https://code.visualstudio.com/docs/editor/extension-gallery#_command-line-extension-management
-  fi
+  #if [ ! excludeGraphical ]; then
+    # ./vscode-setup.sh
+    #code --install-extension ms-python.python --force
+    #code --install-extension ms-vscode.cpptools --force
+  #fi
 fi
 
 # Security Tools
@@ -77,10 +88,10 @@ if [ $includeSecTools ]; then
   source $HOME/tools/gf/gf-completion.bash
   
   # Graphical Security Tools
-  if [ ! $excludeGraphical ]; then
+  #if [ ! $excludeGraphical ]; then
     # burp
     # zap
-  fi
+  #fi
 fi
 
 # Graphical Applications
