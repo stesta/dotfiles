@@ -114,8 +114,8 @@ export GOPATH=$HOME/.go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 # gf autocomplete
-if [ -f $HOME/tools/gf/gf-completion.bash ]; then
-    . $HOME/tools/gf/gf-completion.bash
+if [ -f $HOME/code/tools/gf/gf-completion.bash ]; then
+    . $HOME/code/tools/gf/gf-completion.bash
 fi
 
 # Swift

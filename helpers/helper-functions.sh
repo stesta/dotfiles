@@ -40,6 +40,17 @@ function snap-install {
   fi
 }
 
+function flatpak-install {
+  which $1 &> /dev/null
+
+  if [ $? -ne 0 ]; then
+    echo "Installing: ${1}..."
+    flatpak install $1
+  else
+    echo "Already installed: ${1}"
+  fi
+}
+
 
 function tar-install {
   if [ ! -d $3/$1 ]; then
